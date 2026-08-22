@@ -1,0 +1,39 @@
+generated: '2026-08-22'
+method: searched
+source: https://tryhungry.com/office
+description: >-
+  HUNGRY publishes NO plans, tiers, rate card or list price anywhere on its public surface.
+  Every product page — office catering, Group Order, live events, snacks and pantry, and the
+  HUNGRY Last Mile logistics site — routes to a "Get Started" / "Get Your Personalized
+  Proposal" lead form or a phone number (1-888-8HUNGRY) instead of a price. There is no
+  /pricing page in the sitemap, and the product pages contain no per-person price, order
+  minimum, delivery fee, subscription tier or "starting at" figure. Pricing is quoted per
+  client by a sales representative; the release notes confirm the commercial model is
+  per-order proposals, invoices and discounts negotiated in the internal Admin system rather
+  than a published catalog.
+docs: null
+plan_count: 0
+model: quote-only (contact sales / request a proposal)
+currency: null
+billing_periods: []
+plans: []
+signals:
+  - fact: Product pages end in a lead-capture form, not a price.
+    evidence: https://tryhungry.com/office
+    status: 200
+  - fact: No /pricing route exists in the published sitemap.
+    evidence: https://tryhungry.com/sitemap.xml
+    status: 200
+  - fact: HUNGRY Last Mile advertises a "Pricing" nav item that resolves to a page section, not a rate card; /pricing returns 404.
+    evidence: https://www.hungrylastmile.com/pricing
+    status: 404
+  - fact: >-
+      Invoicing, discount categories, service fees (including a W2 "Gratuity Service Fee"),
+      delivery fees and employee contribution are all managed per-client inside HUNGRY's
+      internal Admin, per the public release notes — confirming negotiated rather than
+      published pricing.
+    evidence: https://tryhungry.github.io/techreleasenotes/release-v3.32.0.html
+    status: 200
+note: >-
+  plan_count is 0 because HUNGRY genuinely publishes nothing, not because the pipeline
+  failed to look. This is a measured absence.

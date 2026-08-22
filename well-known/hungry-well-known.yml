@@ -1,0 +1,114 @@
+generated: '2026-08-22'
+method: probed
+source: live probes of every HUNGRY host discovered during contract discovery
+description: >-
+  Results of probing the /.well-known/ discovery surface for every HUNGRY host found in
+  apis.yml and during STEP 0b contract discovery. NOTHING WAS FOUND — no host serves a real
+  document at any probed path, so no `WellKnown` or `SecurityTxt` pointer is emitted in
+  apis.yml. Two failure shapes are recorded below and both are misses:
+  (a) api.tryhungry.com and www.hungrylastmile.com return an honest 404;
+  (b) tryhungry.com, gamma.tryhungry.com and admin.tryhungry.com are single-page
+  applications whose catch-all route answers 200 with an HTML shell for EVERY
+  /.well-known/* path — including paths that plainly do not exist. Those 200s are recorded
+  as `spa_shell: true` and are explicitly NOT documents. Treating them as hits would credit
+  HUNGRY with a discovery surface it does not serve.
+hosts:
+  - host: https://api.tryhungry.com
+    note: Private first-party API host (Go service behind Cloudflare); returns plain-text "404 page not found".
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://tryhungry.com
+    note: >-
+      Astro marketing site over a React application shell. Returns 404 for /.well-known/* paths
+      but 200 with the same HTML shell for arbitrary application routes such as /api-docs and
+      /graphql, neither of which is a real surface.
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://gamma.tryhungry.com
+    note: Single-page application; catch-all route answers 200 with an HTML shell for every path.
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        spa_shell: true
+        content_type: text/html
+      - path: /.well-known/api-catalog
+        status: 200
+        spa_shell: true
+        content_type: text/html
+      - path: /.well-known/agent-card.json
+        status: 200
+        spa_shell: true
+        content_type: text/html
+      - path: /.well-known/agent.json
+        status: 200
+        spa_shell: true
+        content_type: text/html
+  - host: https://admin.tryhungry.com
+    note: Internal admin single-page application; catch-all route answers 200 with an HTML shell for every path.
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        spa_shell: true
+        content_type: text/html
+      - path: /.well-known/api-catalog
+        status: 200
+        spa_shell: true
+        content_type: text/html
+      - path: /.well-known/agent-card.json
+        status: 200
+        spa_shell: true
+        content_type: text/html
+      - path: /.well-known/agent.json
+        status: 200
+        spa_shell: true
+        content_type: text/html
+  - host: https://www.hungrylastmile.com
+    note: HUNGRY Last Mile logistics marketing site; honest 404s.
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+summary:
+  documents_found: 0
+  security_txt: false
+  api_catalog: false
+  agent_card: false
+  openid_configuration: false
+  oauth_authorization_server: false
+  ai_plugin: false
+  pointer_emitted: false
+  pointer_note: >-
+    No WellKnown, SecurityTxt or AgentCard pointer is wired into apis.yml. Every 200 observed
+    was an SPA catch-all HTML shell, which is not a document. This file records a measured
+    absence, not a presence.

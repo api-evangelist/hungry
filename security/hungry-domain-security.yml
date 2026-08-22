@@ -1,0 +1,44 @@
+generated: '2026-08-22'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml hosts plus the first-party api./admin./gamma. subdomains
+  discovered during contract discovery
+hosts:
+- host: tryhungry.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 14 05:27:54 2026 GMT
+  hsts: false
+- host: api.tryhungry.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 28 05:44:29 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+  hsts_include_subdomains: true
+  hsts_preload: true
+  note: Private first-party API host behind Cloudflare. Answers a Go-style plain-text "404 page not found"
+    on every probed path; no public documentation or specification is served here.
+- host: admin.tryhungry.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 28 08:07:52 2026 GMT
+  hsts: false
+  note: Internal admin single-page app; answers 200 with an HTML shell for every path including /.well-known/*.
+- host: gamma.tryhungry.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 20 13:03:42 2026 GMT
+  hsts: false
+  note: Marketing/pop-ups single-page app; answers 200 with an HTML shell for every path including /.well-known/*.
+domains:
+- domain: tryhungry.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: none
+findings:
+- Only api.tryhungry.com sets Strict-Transport-Security; the apex tryhungry.com, admin. and gamma. do
+  not.
+- tryhungry.com publishes no CAA record and DNSSEC is not enabled on the zone.
+- SPF and DMARC are both published, but the DMARC policy is p=none (monitor only, no enforcement).

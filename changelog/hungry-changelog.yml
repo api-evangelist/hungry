@@ -1,0 +1,130 @@
+generated: '2026-08-22'
+method: searched
+source: https://tryhungry.github.io/techreleasenotes/
+description: >-
+  HUNGRY publishes a dated engineering release-notes site at
+  tryhungry.github.io/techreleasenotes/ (source repo github.com/tryhungry/techreleasenotes,
+  public, GitHub Pages). Each release is a static HTML page headed "HUNGRY Tech Updates"
+  and labelled "Internal", but the site and its source repository are served publicly with
+  no authentication. This is the only dated, versioned technical publication HUNGRY makes
+  available: it documents the internal platform (Admin, Client Admin Dashboard, Chef /
+  Food Partner Dashboard, Ops Dashboard and Captain app, Group Order web and mobile), not
+  a public API. There is no API version header, no deprecation notice and no operation-level
+  change in any entry, because HUNGRY publishes no public API to change.
+docs: https://tryhungry.github.io/techreleasenotes/
+repository: https://github.com/tryhungry/techreleasenotes
+audience: internal platform (published publicly)
+covers: HUNGRY internal platform releases — not a public API contract
+versioning:
+  scheme: semver-style minor releases (v3.x.0) plus dated hot-fix bundles
+  current: v3.32.0
+  current_date: '2026-08-14'
+  cadence: roughly every 4-8 weeks
+  api_version_header: null
+  api_version_header_note: >-
+    No public API is published, so no version header or dated API version exists.
+entries:
+  - version: v3.32.0
+    date: '2026-08-14'
+    latest: true
+    url: https://tryhungry.github.io/techreleasenotes/release-v3.32.0.html
+    areas:
+      - Admin — Invoicing
+      - Order Confirmation Emails
+      - Client Admin Dashboard
+      - Admin — Catering Proposals
+      - Admin — Group Order Client Schedules
+    highlights:
+      - Invoices and late-payment reminders now send from a no-reply address; Client Profile blocks saving when catering and batch invoice settings are both selected.
+      - Fixed a bug where one malformed contact email on a chef's notification list blocked order confirmation email to all of that chef's contacts.
+      - '"This Week''s Vendors" weekly snapshot now sorts vendors Mon-Fri instead of at random.'
+      - Viewing Orders modal terminology changed — "Order Type" to "User Type", "Registered" to "Member" (copy only, no logic change).
+      - Client-facing catering Proposal PDFs can show per-item packaging type, configurable per client.
+      - Admins can configure a client location's recurring Group Order schedule — active days, order cutoff times, dropoff times.
+    breaking: []
+  - version: v3.31.0
+    date: '2026-07-14'
+    url: https://tryhungry.github.io/techreleasenotes/release-v3.31.0.html
+    areas:
+      - Ops Dashboard — Captain View
+      - Ops Dashboard — Performance Audits
+      - Food Partner — Chef Profiles
+      - Catering — Order Discounts
+      - Catering — Invoicing
+    highlights:
+      - Vendor phone icon on a route now opens a chef contact-list modal (name, role, phone) instead of dialing one number.
+      - Captains can see a "Captains Team" contact list for other captains on the same order, and download the Group Order roster sheet PDF from mobile.
+      - Weekly market-level ops audit reports (route check-in times, GO meals scanned, image uploads) now generate and send automatically every Monday.
+      - Fixed a crash where an unresolvable or invalid chef address broke chef creation; address fields are now escaped to prevent parameter injection.
+      - Catering orders support multiple discounts, each with its own internal note.
+      - Discount categories and reasons reorganized to align with Finance; invoices, payment links and sales reports reflect the new labels.
+    breaking: []
+  - version: hot-fixes-june-2026
+    date: '2026-06-29'
+    url: https://tryhungry.github.io/techreleasenotes/hot-fixes-june-2026.html
+    areas:
+      - Group Order Web
+      - Client Admin Dashboard
+      - Admin — UGOM Settings
+      - Admin — HubSpot Sync
+      - Chef Dashboard
+      - Captain App
+    highlights:
+      - Two-step onboarding modal for multi-location users to set a default delivery location and email reminder preferences (web only; mobile in testing).
+      - Admins can set a per-user default location from Manage Users, individually or in bulk via CSV upload.
+      - Per-location control over which side sub-categories (a la carte sides, appetizers, drinks, desserts) appear when scheduling a UGOM menu.
+      - Fixed a bug where "customer status" and "budget type" changes in HubSpot were not syncing to Admin, leaving trial statuses unrecognized.
+      - Fixed blank and duplicate-item bugs in the Group Order favorites email.
+      - Fixed a Chef Dashboard crash when viewing an order containing recently removed menu items.
+      - Fixed QR codes being cut off on labels, causing scan failures.
+    breaking: []
+  - version: v3.30.0
+    date: '2026-05-19'
+    url: https://tryhungry.github.io/techreleasenotes/release-v3.30.0.html
+    areas:
+      - Admin — Catering Orders
+      - Admin — Food Partners
+      - Admin — Group Order Client Settings
+      - Group Order — Cart
+      - Group Order — Chef Emails
+    highlights:
+      - Original base pricing (cost, price, retail price) is now saved on each order and proposal item with a calculated discount/markup amount, exposed in Looker at line-item level.
+      - CN Managers can unlink a food partner from a market in Admin without developer involvement.
+      - New Co-Branding Settings section in Client Profile enables a branded top nav on a client's Group Order experience.
+      - Fixed a cart bug where updating quantities on an item from a non-active day returned "Cannot add to cart because menu data could not be found".
+      - Fixed the weekly chef schedule reminder email excluding orders with a Friday cutoff.
+    breaking: []
+  - version: v3.29.0
+    date: '2026-04-24'
+    url: https://tryhungry.github.io/techreleasenotes/release-v3.29.0.html
+    areas:
+      - Admin — Catering Orders
+      - Admin — Menu Items
+      - Ops Dashboard & Admin — Consumption Tracking
+      - Chef Dashboard & Order PDF
+    highlights:
+      - New "Gratuity Service Fee" custom service fee line item for W2 employee gratuity, separate from the existing Tip line item for 1099 contractors.
+      - Child/parent menu item fixes — destroyed child items excluded from copies, un-archiving a parent restores its child items, one-parent-per-child-item enforced.
+      - Captains on consumption-tracking routes get an "Additional Task Confirmation" stop that validates required consumption data before completion.
+      - Converting a proposal to a sales order for a consumption-tracking client now requires a consumption category or a written bypass reason, with a persistent warning banner.
+      - Chef Dashboard shows modification and chef-note counts per order; Chef Order PDF adds a Special Instructions section, retail price and ops contact.
+    breaking: []
+  - version: v3.28.0
+    date: '2026-04-07'
+    url: https://tryhungry.github.io/techreleasenotes/release-v3.28.0.html
+    areas:
+      - Group Orders
+      - Client Admin Dashboard — Billing
+      - Dietary Tags
+    highlights:
+      - 'All Group Order labels now carry a "Consume or discard within 2 hours after delivery" notice, per TPHC food safety standards.'
+      - Sold-out alerts for Group Orders email the market's Food Partner distro and post to the Ops Alert Slack channel, with a weekly sell-out summary each Monday.
+      - Client-facing vendor names decouple the clean parent vendor name from the internal location-specific one.
+      - Group Orders now distinguish client-initiated from vendor-initiated cancellations.
+      - Item-level partial refunds for Group Orders, replacing a manual Square refund process handled by Support.
+      - Billing tab raw data export now includes Delivery Fee and Employee Contribution.
+      - '"Contains Bones" added as a dietary tag.'
+    breaking: []
+notes:
+  - No entry in the published window records a breaking change to any external contract, because HUNGRY exposes no public API.
+  - Named third-party integrations visible in the release notes are HubSpot (CRM sync), Square (payments/refunds), Slack (ops alerts) and Looker (reporting) — all inbound to HUNGRY's own platform, not outbound APIs HUNGRY offers.

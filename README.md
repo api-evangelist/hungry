@@ -64,5 +64,46 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Hungry is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://forgeglobal.com/hungry_stock/
+# HUNGRY
+
+HUNGRY (Hungry Marketplace, Inc.) is an Arlington, Virginia workplace food platform that
+connects corporate clients to a curated network of independent chefs and local restaurants.
+Founded in 2016 by Jeff Grass, Eman Pahlavani and Shy Pahlevani, it runs four product lines —
+office catering, Group Order individual meal pre-ordering, live events and chef pop-ups, and
+snacks and pantry — plus HUNGRY Last Mile, its own delivery and logistics arm. It operates
+across 24 US cities and, following the February 2026 merger with Toronto-based hungerhub,
+more than ten Canadian markets. Earlier acquisitions include NatureBox and Garten.
+
+## API surface
+
+**HUNGRY publishes no public API and no developer program.** Contract discovery was run on
+2026-08-22 against every host we could find — `api.tryhungry.com`, `tryhungry.com`,
+`gamma.tryhungry.com`, `admin.tryhungry.com`, `www.hungrylastmile.com` — and against the
+`github.com/tryhungry` organization. No OpenAPI, Swagger, GraphQL SDL, AsyncAPI, JSON Schema,
+Postman collection, SDK, MCP server or A2A agent card exists on any of them.
+
+A first-party API host does exist at `https://api.tryhungry.com`. It is a private backend for
+HUNGRY's own web and mobile clients: behind Cloudflare, HSTS with `preload`, and a plain-text
+`404 page not found` on every publicly probed path. It is undocumented and not offered to
+third parties.
+
+The one real technical publication HUNGRY makes public is a dated engineering release-notes
+site — captured in `changelog/`.
+
+## What is in this repository
+
+| Path | What it records |
+|---|---|
+| `changelog/hungry-changelog.yml` | HUNGRY's public, dated Tech Release Notes (v3.28.0 → v3.32.0, Apr–Aug 2026), searched from `tryhungry.github.io/techreleasenotes/` |
+| `security/hungry-domain-security.yml` | Probed TLS/HSTS/DNSSEC/CAA/SPF/DMARC across five HUNGRY hosts |
+| `well-known/hungry-well-known.yml` | A measured absence — every `/.well-known/` path probed, nothing served (the SPA hosts answer 200 with an HTML shell, which is not a document) |
+| `plans/hungry-plans-pricing.yml` | A measured absence — quote-only, no published pricing |
+| `llms/hungry-llms.txt` | Generated agent-readable summary, leading with the fact that there is nothing to integrate against |
+
+## Links
+
+- Website: <https://tryhungry.com/>
+- Tech Release Notes: <https://tryhungry.github.io/techreleasenotes/>
+- GitHub organization: <https://github.com/tryhungry>
+- HUNGRY Last Mile: <https://www.hungrylastmile.com/>
+- Terms of Use & Privacy Policy: <https://tryhungry.com/terms-and-privacy>
