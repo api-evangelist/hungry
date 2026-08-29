@@ -16,6 +16,17 @@ description: 'HUNGRY (Hungry Marketplace, Inc.) is an Arlington, Virginia workpl
   dated, public engineering release-notes site, which is the only machine-adjacent
   technical artifact it makes available.'
 url: https://raw.githubusercontent.com/api-evangelist/hungry/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://tryhungry.com/_astro/hungry-logo.BlRuMDC-.svg
 x-type: company
 x-source: harvest:secondary-market
