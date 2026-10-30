@@ -1,4 +1,4 @@
-# Hungry
+# HUNGRY
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,46 +64,98 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-# HUNGRY
+HUNGRY (Hungry Marketplace, Inc.) is an Arlington, Virginia workplace food platform that connects corporate clients to a curated network of independent chefs and local restaurants. Founded in 2016 by Jeff Grass, Eman Pahlavani and Shy Pahlevani, it operates four product lines — office catering, Group Order individual meal pre-ordering, live events and chef pop-ups, and snacks and pantry — plus HUNGRY Last Mile, its own delivery and logistics arm. The platform runs its own admin, chef/food-partner dashboard, client admin dashboard, ops captain app and consumer ordering marketplace across 24 US cities and, following the February 2026 merger with Toronto-based hungerhub, more than ten Canadian markets. Earlier acquisitions include NatureBox and Garten. HUNGRY publishes no public developer program: the backing API at api.tryhungry.com is a private first-party service for its own web and mobile clients, and no OpenAPI, GraphQL SDL, AsyncAPI, SDK or partner API reference is published anywhere on its public surface. The company does publish a dated, public engineering release-notes site, which is the only machine-adjacent technical artifact it makes available.
 
-HUNGRY (Hungry Marketplace, Inc.) is an Arlington, Virginia workplace food platform that
-connects corporate clients to a curated network of independent chefs and local restaurants.
-Founded in 2016 by Jeff Grass, Eman Pahlavani and Shy Pahlevani, it runs four product lines —
-office catering, Group Order individual meal pre-ordering, live events and chef pop-ups, and
-snacks and pantry — plus HUNGRY Last Mile, its own delivery and logistics arm. It operates
-across 24 US cities and, following the February 2026 merger with Toronto-based hungerhub,
-more than ten Canadian markets. Earlier acquisitions include NatureBox and Garten.
+**Areas:** Company · Food and Beverage · Catering · Marketplace · Logistics · Food Delivery · Workplace · Hospitality · Corporate Services · Last Mile Delivery
 
-## API surface
+## HUNGRY on APIs.io
 
-**HUNGRY publishes no public API and no developer program.** Contract discovery was run on
-2026-08-22 against every host we could find — `api.tryhungry.com`, `tryhungry.com`,
-`gamma.tryhungry.com`, `admin.tryhungry.com`, `www.hungrylastmile.com` — and against the
-`github.com/tryhungry` organization. No OpenAPI, Swagger, GraphQL SDL, AsyncAPI, JSON Schema,
-Postman collection, SDK, MCP server or A2A agent card exists on any of them.
+Everything profiled for HUNGRY is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/hungry/](https://apis.io/providers/hungry/)** — or go straight to one of the APIs or properties below.
 
-A first-party API host does exist at `https://api.tryhungry.com`. It is a private backend for
-HUNGRY's own web and mobile clients: behind Cloudflare, HSTS with `preload`, and a plain-text
-`404 page not found` on every publicly probed path. It is undocumented and not offered to
-third parties.
+### Published properties
 
-The one real technical publication HUNGRY makes public is a dated engineering release-notes
-site — captured in `changelog/`.
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## What is in this repository
+#### MCP servers (1)
 
-| Path | What it records |
+Model Context Protocol servers that expose the API to agents.
+
+- [hungry](https://apis.io/servers/hungry/hungry/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Hungry Domain Security](https://apis.io/security/hungry/hungry-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Hungry Plans Pricing](https://apis.io/plans/hungry/hungry-plans-pricing/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://tryhungry.com/)
+- [Support](https://tryhungry.com/contact)
+- [Blog](https://specials.tryhungry.com/press)
+- [Terms of service](https://tryhungry.com/terms-and-privacy)
+- [Privacy policy](https://tryhungry.com/terms-and-privacy)
+- [GitHub](https://github.com/tryhungry)
+
+## API Evangelist rating
+
+**Kin Score 14.4** — emerging · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
 |---|---|
-| `changelog/hungry-changelog.yml` | HUNGRY's public, dated Tech Release Notes (v3.28.0 → v3.32.0, Apr–Aug 2026), searched from `tryhungry.github.io/techreleasenotes/` |
-| `security/hungry-domain-security.yml` | Probed TLS/HSTS/DNSSEC/CAA/SPF/DMARC across five HUNGRY hosts |
-| `well-known/hungry-well-known.yml` | A measured absence — every `/.well-known/` path probed, nothing served (the SPA hosts answer 200 with an HTML shell, which is not a document) |
-| `plans/hungry-plans-pricing.yml` | A measured absence — quote-only, no published pricing |
-| `llms/hungry-llms.txt` | Generated agent-readable summary, leading with the fact that there is nothing to integrate against |
+| Discoverability | 52.5 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 18.4 |
+| Developer ergonomics | 7.1 |
+| Access clarity | 27.6 |
 
-## Links
+**Agent readiness 12.2** — agent-aware
 
-- Website: <https://tryhungry.com/>
-- Tech Release Notes: <https://tryhungry.github.io/techreleasenotes/>
-- GitHub organization: <https://github.com/tryhungry>
-- HUNGRY Last Mile: <https://www.hungrylastmile.com/>
-- Terms of Use & Privacy Policy: <https://tryhungry.com/terms-and-privacy>
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 13.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/hungry/](https://apis.io/providers/hungry/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for HUNGRY: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/hungry/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
